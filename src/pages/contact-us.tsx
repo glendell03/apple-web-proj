@@ -1,40 +1,44 @@
 import Logo from "@/assets/images/logo.png";
-import Button from "@/components/button";
 import Input from "@/components/input";
 import ContactUsBG from "@/assets/images/contact-us-bg.png";
+import { Button, Container } from "react-bootstrap";
 
-const ContactUs = () => {
+export default function ContactUs (){
   return (
-    <div className="container mx-auto">
+    <Container>
       <img src={ContactUsBG} alt="Contact Us Hero" />
-      <div className="m-10" />
+      <div className="m-5" />
 
       <h1 className="text-3xl">Contact with Us</h1>
-      <div className="m-8" />
+      <div className="m-5" />
 
-      <div className="flex gap-10">
-        <span className="h-40 w-40">
-          <img src={Logo} alt="Logo" className="w-full h-full" />
+      <div className="d-flex gap-5">
+        <span className="h-40 w-40" style={{ height: "15rem", width: "15rem" }}>
+          <img
+            src={Logo}
+            alt="Logo"
+            style={{ height: "100%", width: "100%" }}
+          />
         </span>
-        <div className="w-[34rem]">
+        <div style={{ width: "34rem" }}>
           <p>Contact Form</p>
-          <div className="m-5" />
 
-          <Input label="Name" required />
-          <Input label="Email" required />
-          <Input label="Subject" required />
-          <label>
+          <Input label="Name" required htmlFor="name" />
+          <Input label="Email" required htmlFor="email" />
+          <Input label="Subject" required htmlFor="subject" />
+          <label style={{ width: "100%" }}>
             <p className="mb-2">Message</p>
-            <textarea className="bg-zinc-300 w-full h-40" />
+            <textarea style={{ height: "10rem", width: "100%" }} />
           </label>
 
           <div className="m-5" />
-          <Button primary>Send</Button>
+          <Button variant="primary" size="lg" style={{ width: "100%" }}>
+            Send
+          </Button>
         </div>
       </div>
       <div className="m-20" />
-    </div>
+    </Container>
   );
 };
 
-export default ContactUs;

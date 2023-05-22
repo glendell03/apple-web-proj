@@ -1,14 +1,15 @@
 import { PropsWithChildren } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
+import { Stack } from "react-bootstrap";
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="flex flex-col h-screen">
-      <Navbar />
-      {children}
-      <Footer/>
-    </div>
+      <Stack style={{ height: "100vh" }}>
+        {/* <Navbar /> */}
+        {children}
+        {/* <Footer/> */}
+      </Stack>
   );
 };
 
