@@ -1,17 +1,24 @@
+import { Form, Stack } from "react-bootstrap";
+
 interface InputProps {
   label: string;
   className?: string;
   required?: boolean;
+  htmlFor: string;
+  type?: "password";
 }
 
-const Input = ({ label, className, required = false }: InputProps) => {
+const Input = ({ label, type, required = false, htmlFor }: InputProps) => {
   return (
-    <label className={`flex flex-col mb-2 ${className}`}>
-      <p className="text-c-text mb-1.5 flex gap-1">
-        {label} {required && <p className="text-red-500">*</p>}
-      </p>
-      <input className="bg-zinc-300 rounded-lg p-3" />
-    </label>
+    <div className="mb-1">
+      <Form.Label htmlFor={htmlFor}>
+        <Stack direction="horizontal" gap={1} className="m-0 p-0">
+          <span>{label}</span>
+          {required && <span className="text-danger">*</span>}
+        </Stack>
+      </Form.Label>
+      <Form.Control type={type} id={htmlFor} style={{ width: "100%" }} />
+    </div>
   );
 };
 

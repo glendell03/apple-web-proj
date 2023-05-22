@@ -1,6 +1,7 @@
 import Hero1 from "@/assets/images/about-us-hero.png";
 import Hero2 from "@/assets/images/about-us-hero-2.png";
 import Doctor from "@/assets/images/doctor.png";
+import { Container, Row } from "react-bootstrap";
 
 const doctors = [
   {
@@ -25,15 +26,23 @@ const doctors = [
   },
 ];
 
-const AboutUs = () => {
+export default function AboutUs () {
   return (
     <div>
       <section
-        style={{ backgroundImage: `url(${Hero1})` }}
-        className="flex-1 w-full object-cover"
+        style={{
+          backgroundImage: `url(${Hero1})`,
+          flex: "1 1 0%",
+          width: "100%",
+          height: "50rem",
+          objectFit: "cover",
+        }}
       >
-        <div className="backdrop-brightness-50 bg-gray-600/5 w-full h-[50rem] flex items-center justify-center">
-          <h1 className="text-center text-5xl text-[#FFFF00]">
+        <div
+          className="d-flex align-items-center justify-content-center"
+          style={{ height: "100%" }}
+        >
+          <h1 className="text-center" style={{ color: "#FFFF00" }}>
             ABOUT SYNERGY
             <br />
             HOMECARE
@@ -41,8 +50,8 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className="container mx-auto px-80 my-28">
-        <h1 className="text-center text-2xl font-bold mb-2">ABOUT US</h1>
+      <Container className="px-5 my-5">
+        <h1 className="text-center font-bold mb-2">ABOUT US</h1>
         <p className="text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Mollis
@@ -53,29 +62,37 @@ const AboutUs = () => {
           mauris augue. Pulvinar pellentesque habitant morbi tristique senectus
           et netus et malesuada.
         </p>
-        <div className="m-10" />
+        <div className="m-5" />
 
-        <h1 className="text-center text-2xl font-bold mb-2">Mission</h1>
+        <h1 className="text-center font-bold mb-2">Mission</h1>
         <p className="text-center">
           To provide a holistic and compassionate approach of the mentally
           challenged individual and other clients.
         </p>
-        <div className="m-10" />
+        <div className="m-5" />
 
-        <h1 className="text-center text-2xl font-bold mb-2">Vission</h1>
+        <h1 className="text-center font-bold mb-2">Vission</h1>
         <p className="text-center">
           To become the leading psychiatric nursing homecare center, that will
           provide holistic care, treatment and rehabilitation of a mentally
           challenged individual and other clients.
         </p>
-      </section>
+      </Container>
 
       <section
-        style={{ backgroundImage: `url(${Hero2})` }}
-        className="flex-1 w-full object-cover"
+        style={{
+          backgroundImage: `url(${Hero2})`,
+          flex: "1 1 0%",
+          width: "100%",
+          height: "50rem",
+          objectFit: "cover",
+        }}
       >
-        <div className="backdrop-brightness-50 bg-gray-600/5 w-full h-[50rem] flex items-center justify-center">
-          <h1 className="text-center text-5xl text-[#FFFF00]">
+        <div
+          className="d-flex align-items-center justify-content-center"
+          style={{ height: "100%" }}
+        >
+          <h1 className="text-center" style={{ color: "#FFFF00" }}>
             OUR DOCTORS &
             <br />
             NURSES
@@ -84,16 +101,22 @@ const AboutUs = () => {
       </section>
 
       <section>
-        {doctors.map((d) => (
-          <div className="flex flex-col gap-2 p-8 items-center justify-center odd:bg-white even:bg-[#7E7E7E]">
-            <img src={d.photo} alt={d.name} className="h-40 w-40" />
-            <h1 className="text-2xl">{d.name}</h1>
-            <p>{d.field}</p>
-          </div>
+        {doctors.map((d, i) => (
+          <Row
+            className="justify-content-center align-items-center p-3"
+            style={{ backgroundColor: (i + 1) % 2 === 0 ? "#7E7E7E" : "white" }}
+          >
+            <img
+              src={d.photo}
+              alt={d.name}
+              style={{ height: "18rem", width: "20rem" }}
+            />
+            <h1 className="text-center">{d.name}</h1>
+            <p className="text-center">{d.field}</p>
+          </Row>
         ))}
       </section>
     </div>
   );
 };
 
-export default AboutUs;

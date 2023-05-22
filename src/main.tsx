@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from "@/pages/login";
 import ErrorPage from "@/404";
 import Layout from "@/components/layout";
